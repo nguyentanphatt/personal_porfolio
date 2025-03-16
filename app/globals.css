@@ -6,10 +6,30 @@
     --breakpoint-lg: 1200px;
     --color-light-blue: #6DE8E9;
     --color-sky-blue: #529DFF;
+    --animate-blink: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 @layer base{
     .hero-ring{
         @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-light-blue/10 shadow-[0_0_80px_inset] shadow-light-blue/5
     }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

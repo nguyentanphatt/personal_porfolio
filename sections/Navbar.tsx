@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Planet from "@/public/icon/planet.svg";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuToggle from "@/components/MenuToggle";
+import { Planet } from "@/constants/image";
 const Navbar = () => {
   const links = [
     {
@@ -34,12 +34,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-10 flex items-center justify-center backdrop-blur-sm">
-      <div className="relative md:hidden border-2 border-sky-blue rounded-4xl bg-transparent">
-        <div className="gap-[180px] flex justify-between items-center px-5 py-2.5">
+    <div className="mt-5 flex items-center justify-center backdrop-blur-xs sticky top-5 z-50 ">
+      <div className="relative md:hidden border-2 border-light-blue px-1.5 py-0.5 rounded-xl bg-transparent">
+        <div className="gap-[180px] flex justify-between items-center">
           <Planet className="text-white" />
           <div onClick={() => setIsOpen(!isOpen)}>
-            <MenuToggle isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}/>
+            <MenuToggle isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
           </div>
         </div>
 
@@ -67,17 +67,18 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-      <div className="relative hidden md:flex gap-[48px] px-5 py-2.5 border-2 border-light-blue rounded-full">
+      <div className="relative hidden md:flex gap-[48px] px-3.5 py-2.5 border-2 border-light-blue rounded-full">
         {links.map((link) => (
           <div
             key={link.href}
             className="relative cursor-pointer"
             onClick={() => handleClick(link.href)}
+
           >
             {active === link.href && (
               <motion.div
                 layoutId="nav-indicator"
-                className="absolute inset-0 bg-light-blue rounded-full z-0"
+                className="absolute inset-0 bg-light-blue rounded-full z-0 hover:bg-amber-400"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
