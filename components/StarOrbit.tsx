@@ -1,3 +1,4 @@
+import { StarOrbitProps } from "@/constants/type";
 import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -10,15 +11,7 @@ export const StarOrbit = ({
   star = false,
   starDuration,
   animatedLoop = false,
-}: PropsWithChildren<{
-  size: number;
-  rotate: number;
-  spinDuration?: string;
-  spin?: boolean;
-  star?: boolean;
-  starDuration?: string;
-  animatedLoop?: boolean;
-}>) => {
+}: PropsWithChildren<StarOrbitProps>) => {
   return (
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div

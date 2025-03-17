@@ -1,7 +1,38 @@
 import Planet from "@/public/icon/planet.svg";
-import Star from "@/public/icon/star.svg"
+import Star from "@/public/icon/star.svg";
+import StarFour from "@/public/icon/star-four.svg";
+
 import planet01 from "@/public/image/planet1.png";
 import planet02 from "@/public/image/planet2.png";
 import planet03 from "@/public/image/planet3.png";
 import planet04 from "@/public/image/planet4.png";
-export { Planet, Star, planet01, planet02, planet03, planet04 };
+import reactIcon from "@/public/image/reactjs.png";
+import nextIcon from "@/public/image/nextjs.png";
+import expressIcon from "@/public/image/ex.png";
+import nodeIcon from "@/public/image/node.png";
+import springIcon from "@/public/image/spring.png";
+import framerIcon from "@/public/image/framer.png";
+import javascriptIcon from "@/public/image/js.png";
+
+import animationLottie from '@/public/lotties/animation.json';
+import responsiveLottie from '@/public/lotties/responsive.json';
+import performanceLottie from '@/public/lotties/performance.json';
+export {
+  Planet,
+  Star,
+  StarFour,
+  planet01,
+  planet02,
+  planet03,
+  planet04,
+  reactIcon,
+  nextIcon,
+  expressIcon,
+  nodeIcon,
+  springIcon,
+  framerIcon,
+  javascriptIcon,
+  animationLottie,
+  responsiveLottie,
+  performanceLottie
+};

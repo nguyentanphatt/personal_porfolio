@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const generateStars = (count: number) => {
+interface Star {
+  id: number;
+  top: string;
+  delay: number;
+  duration: number;
+  tailLength: string;
+}
+const generateStars = (count: number):Star[] => {
   return Array.from({ length: count }, (_, i) => ({
     id: i,
     top: Math.random() * 100 + "vh",
@@ -14,7 +21,7 @@ const generateStars = (count: number) => {
 };
 
 export default function FallingStars({ count = 10 }) {
-  const [stars, setStars] = useState<Array<any>>([]);
+  const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {
     setStars(generateStars(count));

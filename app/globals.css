@@ -7,6 +7,7 @@
     --color-light-blue: #6DE8E9;
     --color-sky-blue: #529DFF;
     --animate-blink: blink 1.5s infinite;
+    --font-exo: var(--font-exo)
 }
 
 @keyframes blink {

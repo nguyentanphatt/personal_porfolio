@@ -1,18 +1,25 @@
 "use client";
-import React from "react";
-import { easeInOut, motion, spring } from "framer-motion";
+import React, { useEffect } from "react";
+import {AnimationControls, motion, useAnimation, Variants } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 const StaggerText = ({
   text,
   delay = 0.3,
   className,
   staggerSpeed = 0.05,
+  animate,
 }: {
   text: string;
   delay?: number;
   staggerSpeed?: number;
   className?: string;
+  animate?: AnimationControls | Variants;
 }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start("visible");
+  }, [controls]);
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -36,22 +43,16 @@ const StaggerText = ({
     visible: {
       opacity: 1,
       y: 0,
-      spring:{
-        type: "spring",
-        damping: 10,
-        stiffness: 100,
-        mass: 0.5,
-        velocity: 0,
-        duration: 0.5,
-        ease: easeInOut,
-      }
+      transition: {
+        ease: "easeInOut"
+      },
     },
   };
   const words = text.split(" ");
   return (
     <motion.div
       initial="hidden"
-      animate="visible"
+      animate={animate as AnimationControls || controls}
       variants={textVariants}
       className={twMerge("overflow-hidden", className)}
     >

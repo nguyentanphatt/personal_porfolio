@@ -1,9 +1,7 @@
-
 import { StickyScroll } from "@/components/Sticky";
 import Hero from "@/sections/Hero";
 import Navbar from "@/sections/Navbar";
-import { title } from "process";
-
+import TechSection from "@/sections/TechSection";
 
 export default function Home() {
   const content = [
@@ -42,8 +40,9 @@ export default function Home() {
     <div className="">
       <Navbar />
       <Hero />
+      <TechSection />
       <div className="py-20">
-      <StickyScroll content={content}/>
+        <StickyScroll content={content} />
       </div>
     </div>
   );

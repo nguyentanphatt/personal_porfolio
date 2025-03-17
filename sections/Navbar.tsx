@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuToggle from "@/components/MenuToggle";
 import { Planet } from "@/constants/image";
@@ -24,7 +24,7 @@ const Navbar = () => {
     },
   ];
 
-  const router = useRouter();
+  //const router = useRouter();
   const [active, setActive] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
 
