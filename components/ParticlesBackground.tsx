@@ -1,12 +1,6 @@
 "use client"
 import { useEffect, useMemo, useState } from "react";
-import dynamic from 'next/dynamic';
-
-const Particles = dynamic(() => import('@tsparticles/react'), {
-    ssr: false,
-    loading: () => <p>Loading...</p>
-});
-import { initParticlesEngine } from "@tsparticles/react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
   type Container,
   type ISourceOptions,

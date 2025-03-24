@@ -1,5 +1,9 @@
 import { TechCardProps } from "@/constants/type";
-import Lottie from "lottie-react";
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+});
 import React, { ComponentPropsWithRef } from "react";
 import { twMerge } from "tailwind-merge";
 
