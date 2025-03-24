@@ -1,12 +1,11 @@
 "use client";
 import Label from "@/components/Label";
 import TechStack from "@/components/TechStack";
-import { tech01, tech02 } from "@/constants/data";
+import { tech01, tech02, techCardData } from "@/constants/data";
 import { useAnimation, useInView } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import StaggerText from "@/components/StaggerText";
-import { animationLottie, performanceLottie, responsiveLottie } from "@/constants/image";
 import TechCard from "@/components/TechCard";
 
 const TechSection = () => {
@@ -15,8 +14,6 @@ const TechSection = () => {
   const mainControls = useAnimation();
   useEffect(() => {
     if (isInView) {
-      console.log("in view");
-      
       mainControls.start("visible");
     }
   }, [isInView]);
@@ -50,14 +47,32 @@ const TechSection = () => {
             animate={mainControls}
           />
         </motion.div>
-        <TechStack item={tech01} delay={1.5}/>
-        <TechStack item={tech02} delay={2.5} right/>
+        <TechStack item={tech01} delay={1.2} />
+        <TechStack item={tech02} delay={2.2} right />
 
-        <TechCard title="Responsive" content="I build websites that look great on any device. A responsive design ensures your website adapts to all screen sizes, providing the best user experience across desktops, tablets, and mobile phones" lottie={responsiveLottie} />
-        <TechCard bgColor="bg-[#386CB0]" title="Animation" content="I create smooth and engaging animations to enhance user interactions. From subtle hover effects to complex motion graphics, animations make your website more dynamic and interactive." lottie={animationLottie} />
-        <TechCard bgColor="bg-[#2D4F80]" title="Performance Optimization" content="I optimize websites for speed and efficiency. Fast-loading pages improve user experience and SEO rankings, ensuring visitors stay engaged and conversions increase." lottie={performanceLottie} />
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          animate={mainControls}
+          transition={{ duration: 0.5, delay: 4.2 }}
+        >
+          {techCardData.map((item, index) => (
+            <TechCard
+              key={index}
+              title={item.title}
+              content={item.content}
+              lottie={item.lottie}
+              bgColor={item.bgColor}
+              style={{
+                top: `calc(150px + ${index * 100}px)`
+              }}
+            />
+          ))}
+        </motion.div>
       </div>
-      
     </div>
   );
 };

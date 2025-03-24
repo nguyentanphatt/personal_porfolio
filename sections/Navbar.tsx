@@ -1,37 +1,31 @@
 "use client";
 import React, { useState } from "react";
-//import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuToggle from "@/components/MenuToggle";
 import { Planet } from "@/constants/image";
+import useScrollSpy from "@/constants/hook";
 const Navbar = () => {
   const links = [
     {
       name: "Home",
-      href: "/",
+      href: "home",
     },
     {
       name: "My Tech",
-      href: "/tech",
+      href: "tech",
     },
     {
       name: "My Works",
-      href: "/project",
+      href: "project",
     },
     {
       name: "Contact",
-      href: "/contact",
+      href: "contact",
     },
   ];
 
-  //const router = useRouter();
-  const [active, setActive] = useState("/");
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = (href: string) => {
-    setActive(href);
-    //router.push(href);
-  };
+  const activeSection = useScrollSpy(links.map((l) => l.href), 100);
 
   return (
     <div className="mt-5 flex items-center justify-center backdrop-blur-xs sticky top-5 z-50 ">
@@ -55,9 +49,11 @@ const Navbar = () => {
               <div className="flex flex-col items-center gap-4 py-4">
                 {links.map((link) => (
                   <a
-                    href={link.href}
+                    href={`#${link.href}`}
                     key={link.name}
-                    className="py-2 text-white text-lg"
+                    className={`py-2 text-white text-lg ${
+                      activeSection === link.href ? "text-sky-blue" : ""
+                    }`}
                   >
                     {link.name}
                   </a>
@@ -67,28 +63,27 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-      <div className="relative hidden md:flex gap-[48px] px-3.5 py-2.5 border-2 border-light-blue rounded-full">
+      <div className="relative hidden md:flex gap-[48px] px-3.5 py-3 border-2 border-light-blue rounded-full">
         {links.map((link) => (
           <div
-            key={link.href}
+            key={`#${link.href}`}
             className="relative cursor-pointer"
-            onClick={() => handleClick(link.href)}
-
           >
-            {active === link.href && (
+            {activeSection  === link.href && (
               <motion.div
                 layoutId="nav-indicator"
-                className="absolute inset-0 bg-light-blue rounded-full z-0 hover:bg-amber-400"
+                className="absolute -inset-1 bg-light-blue rounded-full z-0"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
-            <h1
+            <a
+              href={`#${link.href}`}
               className={`relative px-4 py-2 transition-colors duration-300 text-lg ${
-                active === link.href ? "text-black z-10" : "text-white"
+                activeSection === link.href ? "text-black z-10" : "text-white"
               }`}
             >
               {link.name}
-            </h1>
+            </a>
           </div>
         ))}
       </div>

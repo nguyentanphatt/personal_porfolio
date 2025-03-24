@@ -59,7 +59,7 @@ const Hero = () => {
           text="I can transform ideas into visually stunning, interactive, and fully responsive web experiences that captivate user across all platform."
           className="text-base md:text-xl text-white/50 text-center md:w-[500px]"
           delay={1.5}
-          staggerSpeed={0.1}
+          staggerSpeed={0.08}
         />
       </div>
     </div>
