@@ -1,10 +1,12 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 
 export default function useScrollSpy(selectors: string[], offset = 0) {
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

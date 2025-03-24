@@ -1,4 +1,3 @@
-import { link } from "fs";
 import {
   animationLottie,
   expressIcon,
@@ -8,9 +7,6 @@ import {
   nextIcon,
   nodeIcon,
   performanceLottie,
-  project01,
-  project02,
-  project03,
   reactIcon,
   responsiveLottie,
   Rocket,
