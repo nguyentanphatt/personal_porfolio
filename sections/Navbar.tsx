@@ -1,31 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuToggle from "@/components/MenuToggle";
 import { Planet } from "@/constants/image";
 import useScrollSpy from "@/constants/hook";
-const Navbar = () => {
-  const links = [
-    {
-      name: "Home",
-      href: "home",
-    },
-    {
-      name: "My Tech",
-      href: "tech",
-    },
-    {
-      name: "My Works",
-      href: "project",
-    },
-    {
-      name: "Contact",
-      href: "contact",
-    },
-  ];
-
+const Navbar = ({ links, sectionRefs }: {
+  links: { href: string; name: string }[];
+  sectionRefs: React.RefObject<HTMLElement>[];
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const activeSection = useScrollSpy(links.map((l) => l.href), 100);
+  const activeSection = useScrollSpy(sectionRefs, 100) || 'home';
 
   return (
     <div className="mt-5 flex items-center justify-center backdrop-blur-xs sticky top-5 z-50 ">

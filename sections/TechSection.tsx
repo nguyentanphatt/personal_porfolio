@@ -43,12 +43,12 @@ const TechSection = () => {
           <StaggerText
             text="I use various frontend and backend technologies to build functional and user-friendly websites."
             className="text-white text-xl md:text-2xl font-bold max-w-[450px] text-center"
-            staggerSpeed={0.09}
+            staggerSpeed={0.05}
             animate={mainControls}
           />
         </motion.div>
-        <TechStack item={tech01} delay={1.2} />
-        <TechStack item={tech02} delay={2.2} right />
+        <TechStack item={tech01} delay={1} />
+        <TechStack item={tech02} delay={2} right />
 
         <motion.div
           variants={{
@@ -57,7 +57,7 @@ const TechSection = () => {
           }}
           initial="hidden"
           animate={mainControls}
-          transition={{ duration: 0.5, delay: 4.2 }}
+          transition={{ duration: 0.5, delay: 3.6 }}
         >
           {techCardData.map((item, index) => (
             <TechCard
