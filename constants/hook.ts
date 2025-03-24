@@ -7,7 +7,7 @@ export default function useScrollSpy(selectors: string[], offset = 0) {
     if (typeof window === "undefined") return;
     if (!selectors.length) return;
 
-    let observer: IntersectionObserver;
+    let observer: IntersectionObserver | null = null;
 
     const handleObserve = () => {
       observer = new IntersectionObserver(
@@ -27,13 +27,16 @@ export default function useScrollSpy(selectors: string[], offset = 0) {
 
       selectors.forEach((id) => {
         const el = document.getElementById(id);
-        if (el) observer.observe(el);
+        if (el) observer!.observe(el);
       });
     };
 
-    if (typeof window !== "undefined") {
-      handleObserve();
-    }
+    // Ensure the DOM is ready before running observer
+    setTimeout(() => {
+      if (typeof window !== "undefined") {
+        handleObserve();
+      }
+    }, 100);
 
     return () => observer?.disconnect();
   }, [selectors, offset]);
