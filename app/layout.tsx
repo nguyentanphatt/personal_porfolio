@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Exo } from "next/font/google";
 import "./globals.css";
-//import ParticlesBackground from "@/components/ParticlesBackground";
-import dynamic from "next/dynamic";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
-const ParticlesBackground = dynamic(() => import("@/components/ParticlesBackground"), { ssr: false });
 const exo = Exo({
   variable: "--font-exo",
   subsets: ["latin"],
