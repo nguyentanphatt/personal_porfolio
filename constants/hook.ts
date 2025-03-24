@@ -4,7 +4,7 @@ export default function useScrollSpy(refs: RefObject<HTMLElement>[], offset = 0)
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !refs.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,7 +22,7 @@ export default function useScrollSpy(refs: RefObject<HTMLElement>[], offset = 0)
     });
 
     return () => observer.disconnect();
-  }, [refs, offset]); // react will re-run if refs array changes
+  }, [refs, offset]);
 
   return activeId;
 }
