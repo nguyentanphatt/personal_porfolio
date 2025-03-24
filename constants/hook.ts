@@ -4,7 +4,6 @@ export default function useScrollSpy(selectors: string[], offset = 0) {
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
-    // Ensure this code only runs on the client side
     if (typeof window === "undefined") return;
 
     const observer = new IntersectionObserver(

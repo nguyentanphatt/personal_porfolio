@@ -1,14 +1,17 @@
+"use client"
 import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
-import Navbar from "@/sections/Navbar";
 import ProjectSection from "@/sections/ProjectSection";
 import Tape from "@/sections/Tape";
 import TechSection from "@/sections/TechSection";
+import dynamic from "next/dynamic";
+
+const NavbarWithNoSSR = dynamic(()=> import("@/sections/Navbar"), {ssr: false})
 
 export default function Home() {
   return (
     <div className="">
-      <Navbar />
+      <NavbarWithNoSSR />
       <section id="home">
         <Hero />
       </section>
