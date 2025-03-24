@@ -1,5 +1,5 @@
 "use client";
-import Footer from "@/sections/Footer";
+//import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
 //import Navbar from "@/sections/Navbar";
 //import ProjectSection from "@/sections/ProjectSection";
@@ -12,7 +12,7 @@ const NavbarNoSSR = dynamic(() => import("@/sections/Navbar"), { ssr: false });
 const TechSectionNoSSR = dynamic(() => import("@/sections/TechSection"), { ssr: false });
 //const TapeNoSSR = dynamic(() => import("@/sections/Tape"), { ssr: false });
 const ProjectSectionNoSSR = dynamic(() => import("@/sections/ProjectSection"), { ssr: false });
-//const FooterNoSSR = dynamic(() => import("@/sections/Footer"), { ssr: false });
+const FooterNoSSR = dynamic(() => import("@/sections/Footer"), { ssr: false });
 
 export default function Home() {
   const homeRef = useRef<HTMLElement>(null);
@@ -28,7 +28,7 @@ export default function Home() {
       ref: projectRef,
       component: <ProjectSectionNoSSR />,
     },
-    { id: "contact", name: "Contact", ref: contactRef, component: <Footer /> },
+    { id: "contact", name: "Contact", ref: contactRef, component: <FooterNoSSR /> },
   ];
   return (
     <div>
