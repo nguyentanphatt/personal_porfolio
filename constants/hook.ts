@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 
 export default function useScrollSpy(selectors: string[], offset = 0) {
