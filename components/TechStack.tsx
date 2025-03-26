@@ -41,7 +41,7 @@ const TechStack = ({ item, delay, right = false }: TechStackProps) => {
                 delay: delay + 1 + index * 0.2,
                 ease: "easeInOut",
               }}
-              className="relative flex items-center justify-center gap-1 md:gap-2.5 lg:gap-4 p-1.5 md:p-3 bg-gradient-to-r from-light-blue to-sky-blue rounded-full md:rounded-2xl z-10"
+              className="relative flex items-center justify-center gap-1 md:gap-2.5 lg:gap-4 p-3 bg-gradient-to-r from-light-blue to-sky-blue rounded-full md:rounded-2xl z-10"
             >
               <Image
                 src={tech.image}
@@ -50,7 +50,7 @@ const TechStack = ({ item, delay, right = false }: TechStackProps) => {
                 height={100}
                 className="size-3 md:size-6"
               />
-              <p className="text-xs md:text-base lg:text-xl font-medium">
+              <p className="text-[10px] md:text-base lg:text-xl font-medium">
                 {tech.name}
               </p>
             </motion.div>

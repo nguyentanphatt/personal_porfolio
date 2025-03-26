@@ -30,7 +30,7 @@ const ProjectSection = () => {
       </motion.div>
 
       <div className="flex w-full items-start gap-5 md:gap-10 lg:gap-20">
-        <div className="w-full py-[20vh] md:py-[30vh]">
+        <div className="w-full py-[30vh]">
           <div>
             {features.map((f) => (
               <ProjectDetail key={f.id} id={f.id}>

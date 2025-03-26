@@ -12,7 +12,7 @@ import Image from "next/image";
 import React from "react";
 const Hero = () => {
   return (
-    <div className="relative z-0 overflow-x-clip py-20 md:py-36 lg:py-60">
+    <div className="relative z-0 overflow-x-clip md:py-36 lg:py-60">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div className="size-[620px] hero-ring"></div>
         <div className="size-[820px] hero-ring"></div>
@@ -44,9 +44,9 @@ const Hero = () => {
         </StarOrbit>
         <StarTrail />
       </div>
-      <div className="flex flex-col items-center justify-center border gap-2.5 px-1 md:px-0">
+      <div className="flex flex-col items-center justify-center h-screen md:h-auto gap-2.5 px-1 md:px-0">
         <StaggerText
-          text="Hi, I AM PHAT"
+          text="Hi, I AM NGUYEN TAN PHAT"
           className="text-2xl md:text-3xl text-white"
         />
         <StaggerText

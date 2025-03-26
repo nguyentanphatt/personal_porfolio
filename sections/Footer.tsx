@@ -24,14 +24,14 @@ const Footer = () => {
 
   const backgroundImage = useMotionTemplate`radial-gradient(150% 150% at 50% 0%, transparent 50%, ${color})`;
   return (
-    <div className="pt-40">
+    <div className="h-screen">
       <motion.div
         style={{
           backgroundImage,
         }}
-        className="h-[100vh] flex flex-col justify-between pt-60"
+        className="h-full flex flex-col justify-end"
       >
-        <div className="flex flex-col items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 my-auto">
           <div className="flex items-center justify-center gap-2.5 border border-white rounded-xl px-2">
             <span className="relative flex size-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-blue opacity-75"></span>

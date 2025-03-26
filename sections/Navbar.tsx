@@ -12,8 +12,8 @@ const Navbar = ({ links, sectionRefs }: {
   const activeSection = useScrollSpy(sectionRefs, 100) || 'home';
 
   return (
-    <div className="mt-5 flex items-center justify-center backdrop-blur-xs sticky top-5 z-50 ">
-      <div className="relative md:hidden border-2 border-light-blue px-1.5 py-0.5 rounded-xl bg-transparent">
+    <div className="py-4 lg:py-8 fixed w-[80%] md:w-[570px] top-0 z-50 left-1/2 -translate-x-1/2">
+      <div className="relative md:hidden backdrop-blur-sm border-2 border-light-blue px-1.5 py-0.5 rounded-xl bg-transparent">
         <div className="gap-[180px] flex justify-between items-center">
           <Planet className="text-white" />
           <div onClick={() => setIsOpen(!isOpen)}>
@@ -38,6 +38,7 @@ const Navbar = ({ links, sectionRefs }: {
                     className={`py-2 text-white text-lg ${
                       activeSection === link.href ? "text-sky-blue" : ""
                     }`}
+                    onClick={()=>setIsOpen(!open)}
                   >
                     {link.name}
                   </a>
@@ -47,7 +48,7 @@ const Navbar = ({ links, sectionRefs }: {
           )}
         </AnimatePresence>
       </div>
-      <div className="relative hidden md:flex gap-[48px] px-3.5 py-3 border-2 border-light-blue rounded-full">
+      <div className="relative hidden md:flex items-center justify-center gap-[48px] px-3.5 py-3 border-2 border-light-blue rounded-full backdrop-blur-sm">
         {links.map((link) => (
           <div
             key={`#${link.href}`}
@@ -72,6 +73,7 @@ const Navbar = ({ links, sectionRefs }: {
         ))}
       </div>
     </div>
+    
   );
 };
 
